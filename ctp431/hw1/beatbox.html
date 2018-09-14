@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> Beatbox</title>
+</head>
+
+<style>
+    button {
+        padding: 5px;
+        background: rgb(200, 200, 200);
+        border: 1px solid rgb(122, 122, 122);
+        border-radius: 2px;
+        outline: none;
+        width:120px;
+        height:120px;
+        font-size:15px
+    }
+    button.active, button:active {
+        background: rgb(100, 100, 100);
+        border: 1px solid rgb(0,0,0);
+        box-shadow: 0 0 2px 0 rgb(0,0,0);
+    }
+    div#kick{
+        width:130px;
+        height:600px;
+        float:left;
+    }
+    #snare{
+        width:130px;
+        height:600px;
+        float:left;
+    }
+    #hihat{
+        width:130px;
+        height:600px;
+        float:left;
+    }
+    #crash{
+        width:130px;
+        height:600px;
+        float:left;
+    }
+    #finger{
+        width:130px;
+        height:600px;
+        float:left;
+    }
+    #clap{
+        width:130px;
+        height:600px;
+        float:left;
+    }
+    input.volume {
+        width:120px;
+        height:10px;
+    }
+</style>
+
+<body>
+
+<h1> My Own Beatbox </h1>
+<br>
+<div id = "kick" align = "center">
+    <button id="kickPad" onmousedown="playdrum(0)" > Kick ('q' key)</button>
+    <p id="kickVolLabel"></p>
+    <input class="volume" onchange="changegain(0,this.value)" id="kickVol" title="Kick volume" type="range" min="-24" max ="0" value = "-12">
+</div>
+<div id = "snare" align = "center">
+    <button id="snarePad" onmousedown="playdrum(1)" > Snare ('w' key)</button>
+    <p id="snareVolLabel"></p>
+    <input class="volume" onchange="changegain(1,this.value)" id="snareVol" title="Snare volume" type="range" min="-24" max ="0" value = "-12">
+</div>
+<div id = "hihat" align = "center">
+    <button id="hihatPad" onmousedown="playdrum(2)"> Hihat ('e' key)</button>
+    <p id="hihatVolLabel"></p>
+    <input class="volume" onchange="changegain(2,this.value)" id="hihatVol" title="Hihat volume" type="range" min="-24" max ="0" value = "-12">
+</div>
+<div id = "crash" align = "center">
+    <button id="crashPad" onmousedown="playdrum(3)"> Crash ('r' key)</button>
+    <p id="crashVolLabel"></p>
+    <input class="volume" onchange="changegain(3,this.value)" id="crashVol" title="Crash volume" type="range" min="-24" max ="0" value = "-12">
+</div>
+<div id = "finger" align = "center">
+    <button id="fingerPad" onmousedown="playdrum(4)"> Finger Snap ('a' key)</button>
+    <p id="fingerVolLabel"></p>
+    <input class="volume" onchange="changegain(4,this.value)" id="fingerVol" title="Finger volume" type="range" min="-24" max ="0" value = "-12">
+</div>
+<div id = "clap" align = "center">
+    <button id="clapPad" onmousedown="playdrum(5)"> Clap ('f' key)</button>
+    <p id="clapVolLabel"></p>
+    <input class="volume" onchange="changegain(5,this.value)" id="clapVol" title="Clap volume" type="range" min="-24" max ="0" value = "-12">
+</div>
+
+<script>
+    var context = new (window.AudioContext || window.webkitAudioContext)();
+    var buffers = new Array(5); // 0 : kick, 1 : snare, 2 : hihat, 3 : Crash, 4 : Finger snap, 5 : Clap
+    var volume_id = new Array("kickVol","snareVol","hihatVol","crashVol","fingerVol","clapVol");
+    var volume_label_id = new Array("kickVolLabel","snareVolLabel","hihatVolLabel","crashVolLabel","fingerVolLabel","clapVolLabel");
+    var gain_nodes = new Array(5);
+    for (i  = 0; i < 6; i++) {
+        gain_nodes[i] = context.createGain();
+        var vol = document.getElementById(volume_id[i]).value;
+        gain_nodes[i].gain.value = db2gain(vol);
+        document.getElementById(volume_label_id[i]).innerHTML = 'Volume:  ' + vol + 'dB';
+    }
+
+    var kick = new XMLHttpRequest();
+    kick.open("Get","./kick.wav",true);
+    kick.responseType = "arraybuffer";
+    kick.onload = function(){
+        context.decodeAudioData(kick.response, function(buffer){buffers[0] = buffer;});
+    }
+    kick.send();
+
+    var snare = new XMLHttpRequest();
+    snare.open("Get","./snare.wav",true);  //  <---- replace this file with yours
+    snare.responseType = "arraybuffer";
+    snare.onload = function(){
+        context.decodeAudioData(snare.response, function(buffer){buffers[1] = buffer;});
+    }
+    snare.send();
+
+    var hihat = new XMLHttpRequest();
+    hihat.open("Get","./hihat.wav",true);  //  <---- replace this file with yours
+    hihat.responseType = "arraybuffer";
+    hihat.onload = function(){
+        context.decodeAudioData(hihat.response, function(buffer){buffers[2] = buffer;});
+    }
+    hihat.send();
+
+    var crash = new XMLHttpRequest();
+    crash.open("Get","./crash.wav",true);  //  <---- replace this file with yours
+    crash.responseType = "arraybuffer";
+    crash.onload = function(){
+        context.decodeAudioData(crash.response, function(buffer){buffers[3] = buffer;});
+    }
+    crash.send();
+
+    var finger = new XMLHttpRequest();
+    finger.open("Get","./finger.wav",true);  //  <---- replace this file with yours
+    finger.responseType = "arraybuffer";
+    finger.onload = function(){
+        context.decodeAudioData(finger.response, function(buffer){buffers[4] = buffer;});
+    }
+    finger.send();
+
+    var clap = new XMLHttpRequest();
+    clap.open("Get","./clap.wav",true);  //  <---- replace this file with yours
+    clap.responseType = "arraybuffer";
+    clap.onload = function(){
+        context.decodeAudioData(clap.response, function(buffer){buffers[5] = buffer;});
+    }
+    clap.send();
+
+
+    window.onload=function(){
+        window.addEventListener('keydown', function (key) {
+            keyboardDown(key);
+        }, false);
+        window.addEventListener('keyup', function (key) {
+            keyboardUp(key);
+        }, false);
+    }
+
+    var source = null;
+
+    function playdrum(i) {
+        source = context.createBufferSource();
+        source.buffer = buffers[i];
+        source.connect(context.destination);
+        source.start(0);
+    }
+
+    function changegain(i,changedvalue){
+        gain_nodes[i].gain.value = db2gain(changedvalue);
+        document.getElementById(volume_label_id[i]).innerHTML = 'Volume:  ' + changedvalue + 'dB';
+    }
+
+    function db2gain(db_gain) {
+        var gain = 1.0;
+        gain = 10.0 ^ (db_gain/20);
+        return gain;
+    }
+    // keyboard mapping
+    function keyboardDown(key) {
+        switch (key.keyCode) {
+            case 81: //'q'
+                var kickpad = document.getElementById("kickPad");
+                kickpad.className = 'active';
+                simulateClick(kickpad);
+                break;
+            case 87: //'w'
+                var snarepad = document.getElementById("snarePad");
+                snarepad.className = 'active';
+                simulateClick(snarepad);
+                break;
+            case 69: //'e'
+                var hihatpad = document.getElementById("hihatPad");
+                hihatpad.className = 'active';
+                simulateClick(hihatpad);
+                break;
+            case 82: //'r'
+                var crashpad = document.getElementById("crashPad");
+                crashpad.className = 'active';
+                simulateClick(crashpad);
+                break;
+            case 65: //'a'
+                var fingerpad = document.getElementById("fingerPad");
+                fingerpad.className = 'active';
+                simulateClick(fingerpad);
+                break;
+            case 70: //'f'
+                var clappad = document.getElementById("clapPad");
+                clappad.className = 'active';
+                simulateClick(clappad);
+                break;
+
+        }
+    }
+    function keyboardUp(key) {
+        switch (key.keyCode) {
+
+            case 81: //'q'
+                var kickpad = document.getElementById("kickPad");
+                kickpad.className = '';
+                break;
+            case 87: //'w'
+                var snarepad = document.getElementById("snarePad");
+                snarepad.className = '';
+                break;
+            case 69: //'e'
+                var hihatpad = document.getElementById("hihatPad");
+                hihatpad.className = '';
+                break;
+            case 82: //'r'
+                var crashpad = document.getElementById("crashPad");
+                crashpad.className = '';
+                break;
+            case 65: //'a'
+                var fingerpad = document.getElementById("fingerPad");
+                fingerpad.className = '';
+                break;
+            case 70: //'f'
+                var clappad = document.getElementById("clapPad");
+                clappad.className = '';
+                break;
+        }
+    }
+    // simulated mousedown on buttons
+    function simulateClick(element) {
+        var event = new MouseEvent("mousedown", {
+            bubbles: true,
+            cancelable: true,
+            view: window
+        });
+        element.dispatchEvent(event);
+    }
+</script>
+</body>
+
+</html>
