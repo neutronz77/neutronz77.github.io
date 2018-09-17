@@ -7,107 +7,172 @@
 </head>
 
 <style>
-    button {
+body{
+   background-image:url("welcome.gif");
+   background-repeat: no-repeat;
+   background-position: right top;
+}
+
+    button{
         padding: 5px;
-        background: rgb(200, 200, 200);
-        border: 1px solid rgb(122, 122, 122);
-        border-radius: 2px;
+        background: rgb(100, 80, 200);
+        border: 10px solid rgb(12, 12, 12);
+        border-radius: 30px;
         outline: none;
-        width:120px;
-        height:120px;
-        font-size:15px
+        width:180px;
+        height:180px;
+        font-size:25px;
+        font-family:courier;
+        color:RGB(240,210,240);
     }
     button.active, button:active {
-        background: rgb(100, 100, 100);
-        border: 1px solid rgb(0,0,0);
+        background: rgb(10, 10, 10);
+        border: 10px solid rgb(55, 55, 55);
         box-shadow: 0 0 2px 0 rgb(0,0,0);
     }
+
+    button.loop{
+        padding: 5px;
+        background: rgb(250, 80, 80);
+        border: 10px solid rgb(12, 12, 12);
+        border-radius: 30px;
+        outline: none;
+        width:250px;
+        height:180px;
+        font-size:25px;
+        font-family:courier;
+        color:RGB(200,200,200);
+    }
+    button.loop.active, button.loop:active {
+        background: rgb(10, 10, 10);
+        border: 10px solid rgb(55, 55, 55);
+        box-shadow: 0 0 2px 0 rgb(0,0,0);
+    }
+
+
     div#kick{
-        width:130px;
-        height:600px;
+        width:200px;
+        height:300px;
+        margin-left:200px;
         float:left;
+
     }
     #snare{
-        width:130px;
-        height:600px;
+        width:200px;
+        height:300px;
         float:left;
     }
     #hihat{
-        width:130px;
-        height:600px;
+        width:200px;
+        height:300px;
         float:left;
     }
     #crash{
-        width:130px;
-        height:600px;
+        width:200px;
+        height:300px;
         float:left;
     }
     #finger{
-        width:130px;
-        height:600px;
+        width:200px;
+        height:300px;
+        margin-left:200px;
         float:left;
     }
     #clap{
-        width:130px;
-        height:600px;
+        width:200px;
+        height:300px;
+        margin-left:400px;
         float:left;
     }
     #loop{
-        width:130px;
-        height:600px;
-        float:left;
+        width:250px;
+        height:200px;
+        margin-left:100px;
+        margin-right:400px;
+        float:right;
+    }
+    #loop2{
+        width:250px;
+        height:200px;
+        margin-right:400px;
+        margin-top:50px;
+        float:right;
     }
     input.volume {
         width:120px;
         height:10px;
+
     }
 </style>
 
-<body>
+<body style="background-color:RGB(230,180,255);">
 
-<h1> My Own Beatbox </h1>
+<h1 style="text-align: center; font-size:100px; font-family:impact; color:RGB(80,50,80);"> Your   Own   Beatbox </h1>
+<hr>
+<br>
 <br>
 <div id = "kick" align = "center">
-    <button id="kickPad" onmousedown="playdrum(0)" > Kick ('q' key)</button>
-    <p id="kickVolLabel"></p>
+    <button id="kickPad" onmousedown="playdrum(0)"> Kick<br><br>('Q' key)</button>
+    <p id="kickVolLabel"  ></p>
     <input class="volume" onchange="changegain(0,this.value)" id="kickVol" title="Kick volume" type="range" min="-24" max ="0" value = "-12">
 </div>
-<div id = "snare" align = "center">
-    <button id="snarePad" onmousedown="playdrum(1)" > Snare ('w' key)</button>
+<div id = "snare" align = "center" >
+    <button id="snarePad" onmousedown="playdrum(1)" > Snare<br><br>('W' key)</button>
     <p id="snareVolLabel"></p>
     <input class="volume" onchange="changegain(1,this.value)" id="snareVol" title="Snare volume" type="range" min="-24" max ="0" value = "-12">
 </div>
 <div id = "hihat" align = "center">
-    <button id="hihatPad" onmousedown="playdrum(2)"> Hihat ('e' key)</button>
+    <button id="hihatPad" onmousedown="playdrum(2)"> Hihat<br><br>('E' key)</button>
     <p id="hihatVolLabel"></p>
     <input class="volume" onchange="changegain(2,this.value)" id="hihatVol" title="Hihat volume" type="range" min="-24" max ="0" value = "-12">
 </div>
 <div id = "crash" align = "center">
-    <button id="crashPad" onmousedown="playdrum(3)"> Crash ('r' key)</button>
+    <button id="crashPad" onmousedown="playdrum(3)"> Crash<br><br>('R' key)</button>
     <p id="crashVolLabel"></p>
     <input class="volume" onchange="changegain(3,this.value)" id="crashVol" title="Crash volume" type="range" min="-24" max ="0" value = "-12">
 </div>
+<br>
+<div id = "loop" align = "center">
+    <button class="loop" id="guitarPad" onmousedown="playloop(0)"> Click to play Guitar loop.</button>
+    <p id="guitarVolLabel"></p>
+    <input class="volume" onchange="changegain(6,this.value)" id="guitarVol" title="Guitar volume" type="range" min="-24" max ="0" value = "-12">
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id = "loop2" align = "center">
+    <button class="loop" id="jazzyPad" onmousedown="playloop(1)"> Click to play Jazzy style loop.</button>
+    <p id="jazzyVolLabel"></p>
+    <input class="volume" onchange="changegain(7,this.value)" id="jazzyVol" title="Jazzy volume" type="range" min="-24" max ="0" value = "-12">
+</div>
+
+
+<br>
+<br>
+
 <div id = "finger" align = "center">
-    <button id="fingerPad" onmousedown="playdrum(4)"> Finger Snap ('a' key)</button>
+    <button id="fingerPad" onmousedown="playdrum(4)"> Finger Snap<br><br>('A' key)</button>
     <p id="fingerVolLabel"></p>
     <input class="volume" onchange="changegain(4,this.value)" id="fingerVol" title="Finger volume" type="range" min="-24" max ="0" value = "-12">
 </div>
 <div id = "clap" align = "center">
-    <button id="clapPad" onmousedown="playdrum(5)"> Clap ('f' key)</button>
+    <button id="clapPad" onmousedown="playdrum(5)"> Clap<br><br>('F' key)</button>
     <p id="clapVolLabel"></p>
     <input class="volume" onchange="changegain(5,this.value)" id="clapVol" title="Clap volume" type="range" min="-24" max ="0" value = "-12">
 </div>
 
-<div id = "guitar" align = "center">
-    <button id="guitarPad" onmousedown="playloop(0)"> Click to play guitar loop.</button>
-    <p id="guitarVolLabel"></p>
-    <input class="volume" onchange="changegain(6,this.value)" id="guitarVol" title="Guitar volume" type="range" min="-24" max ="0" value = "-12">
-</div>
-<div id = "jazzy" align = "center">
-    <button id="jazzyPad" onmousedown="playloop(1)"> Click to play Jazzy style loop.</button>
-    <p id="jazzyVolLabel"></p>
-    <input class="volume" onchange="changegain(7,this.value)" id="jazzyVol" title="Jazzy volume" type="range" min="-24" max ="0" value = "-12">
-</div>
+
+
+
 
 
 <script>
