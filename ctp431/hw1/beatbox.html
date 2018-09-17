@@ -277,6 +277,7 @@ body{
         source.buffer = buffers_loop[i];
         source.connect(context.destination);
         source.start(0);
+        source.loop = true;
     }
 
     function changegain(i,changedvalue){
