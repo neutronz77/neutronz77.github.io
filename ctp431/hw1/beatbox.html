@@ -304,6 +304,7 @@ body{
     function stopsound(i){
       source = context.createBufferSource();
       source.buffer = buffers_loop[i];
+      source.loop = false;
       source.disconnect();
     }
 
