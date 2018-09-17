@@ -49,6 +49,25 @@ body{
         box-shadow: 0 0 2px 0 rgb(0,0,0);
     }
 
+    button.stop{
+        padding: 5px;
+        background: rgb(0, 0, 0);
+        border: 5px solid rgb(100, 100, 100);
+        outline: none;
+        border-radius: 0px;
+        width:130px;
+        height:60px;
+        font-size:15px;
+        font-family:courier;
+        color:RGB(250,250,250);
+        margin-left: 20px;
+    }
+    button.stop.active, button.stop:active {
+        background: rgb(10, 10, 10);
+        border: 5px solid rgb(55, 55, 55);
+        box-shadow: 0 0 2px 0 rgb(0,0,0);
+    }
+
 
     div#kick{
         width:200px;
@@ -85,14 +104,14 @@ body{
         float:left;
     }
     #loop{
-        width:250px;
+        width:300px;
         height:200px;
         margin-left:100px;
         margin-right:400px;
         float:right;
     }
     #loop2{
-        width:250px;
+        width:300px;
         height:200px;
         margin-right:400px;
         margin-top:50px;
@@ -136,6 +155,7 @@ body{
     <button class="loop" id="guitarPad" onmousedown="playloop(0)"> Click to play Guitar loop.</button>
     <p id="guitarVolLabel"></p>
     <input class="volume" onchange="changegain(6,this.value)" id="guitarVol" title="Guitar volume" type="range" min="-24" max ="0" value = "-12">
+    <button class="stop" onclick="stopsound(0)"> Click to stop loop. </button>
 </div>
 <br>
 <br>
@@ -153,6 +173,7 @@ body{
     <button class="loop" id="jazzyPad" onmousedown="playloop(1)"> Click to play Jazzy style loop.</button>
     <p id="jazzyVolLabel"></p>
     <input class="volume" onchange="changegain(7,this.value)" id="jazzyVol" title="Jazzy volume" type="range" min="-24" max ="0" value = "-12">
+    <button class="stop" onclick="stopsound(1)"> Click to stop loop. </button>
 </div>
 
 
@@ -278,6 +299,12 @@ body{
         source.connect(context.destination);
         source.start(0);
         source.loop = true;
+    }
+
+    function stopsound(i){
+      source = context.createBufferSource();
+      source.buffer = buffers_loop[i];
+      source.disconnect();
     }
 
     function changegain(i,changedvalue){
