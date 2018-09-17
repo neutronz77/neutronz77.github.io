@@ -155,7 +155,7 @@ body{
     <button class="loop" id="guitarPad" onmousedown="playloop(0)"> Click to play Guitar loop.</button>
     <p id="guitarVolLabel"></p>
     <input class="volume" onchange="changegain(6,this.value)" id="guitarVol" title="Guitar volume" type="range" min="-24" max ="0" value = "-12">
-    <button class="stop" onclick="stopsound(0)"> Click to stop loop. </button>
+    <button class="stop" onclick="stopsound()"> Click to stop loop. </button>
 </div>
 <br>
 <br>
@@ -173,7 +173,7 @@ body{
     <button class="loop" id="jazzyPad" onmousedown="playloop(1)"> Click to play Jazzy style loop.</button>
     <p id="jazzyVolLabel"></p>
     <input class="volume" onchange="changegain(7,this.value)" id="jazzyVol" title="Jazzy volume" type="range" min="-24" max ="0" value = "-12">
-    <button class="stop" onclick="stopsound(1)"> Click to stop loop. </button>
+    <button class="stop" onclick="stopsound()"> Click to stop loop. </button>
 </div>
 
 
@@ -301,11 +301,9 @@ body{
         source.loop = true;
     }
 
-    function stopsound(i){
-      source = context.createBufferSource();
-      source.buffer = buffers_loop[i];
-      source.loop = false;
-      source.disconnect();
+    function stopsound(){
+      play.setAttribute('disabled', 'disabled');
+      playbackControl.removeAttribute('disabled');
     }
 
     function changegain(i,changedvalue){
