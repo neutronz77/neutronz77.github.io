@@ -284,29 +284,27 @@ body{
         }, false);
     }
 
-    var source = null;
+    var source = [];
 
     function playdrum(i) {
-        source = context.createBufferSource();
-        source.buffer = buffers[i];
-        source.connect(context.destination);
-        source.start(0);
+        source[i] = context.createBufferSource();
+        source[i].buffer = buffers[i];
+        source[i].connect(context.destination);
+        source[i].start(0);
     }
 
     function playloop(i) {
-        source = context.createBufferSource();
-        source.buffer = buffers_loop[i];
-        source.connect(context.destination);
-        source.start(0);
-        source.loop = true;
+        source[i+6] = context.createBufferSource();
+        source[i+6].buffer = buffers_loop[i];
+        source[i+6].connect(context.destination);
+        source[i+6].start(0);
+        source[i+6].loop = true;
     }
 
     function stopsound(){
-      if (source){
-        source.stop();
-        source.disconnect();
-        source.loop = false;
-      }
+      for(let i = 0; i < 8; i++)
+        if (sources[i])
+          sources[i].stop(0);
     }
 
     function changegain(i,changedvalue){
