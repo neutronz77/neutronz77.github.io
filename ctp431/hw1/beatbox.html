@@ -302,9 +302,12 @@ body{
     }
 
     function stopsound(){
-      for(let i = 0; i < 8; i++)
-        if (sources[i])
-          sources[i].stop(0);
+      for(let i = 0; i < 8; i++){
+        if (source[i]){
+          source[i].stop();
+        }
+      }
+
     }
 
     function changegain(i,changedvalue){
