@@ -152,7 +152,7 @@ body{
 </div>
 <br>
 <div id = "loop" align = "center">
-    <button class="loop" id="guitarPad" onmousedown="playloop(0)"> Click to play Guitar loop.</button>
+    <button class="loop" id="guitarPad" onmousedown="playloop(0)"> Click to play Hiphop loop.</button>
     <p id="guitarVolLabel"></p>
     <input class="volume" onchange="changegain(6,this.value)" id="guitarVol" title="Guitar volume" type="range" min="-24" max ="0" value = "-12">
     <button class="stop" onclick="stopsound()"> Click to stop loop. </button>
@@ -259,7 +259,7 @@ body{
     clap.send();
 
     var guitar = new XMLHttpRequest();
-    guitar.open("Get","./Loop_Guitar.wav",true);  //  <---- replace this file with yours
+    guitar.open("Get","./Loop_Hiphop.wav",true);  //  <---- replace this file with yours
     guitar.responseType = "arraybuffer";
     guitar.onload = function(){
         context.decodeAudioData(guitar.response, function(buffer){buffers_loop[0] = buffer;});
