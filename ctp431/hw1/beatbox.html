@@ -304,6 +304,8 @@ body{
     function stopsound(){
       if (source){
         source.stop();
+        source.disconnect();
+        source.loop = false;
       }
     }
 
