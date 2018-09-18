@@ -302,8 +302,9 @@ body{
     }
 
     function stopsound(){
-      play.setAttribute('disabled', 'disabled');
-      playbackControl.removeAttribute('disabled');
+      if (source){
+        source.stop();
+      }
     }
 
     function changegain(i,changedvalue){
