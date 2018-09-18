@@ -198,11 +198,11 @@ body{
 
 <script>
     var context = new (window.AudioContext || window.webkitAudioContext)();
-    var buffers = new Array(5); // 0 : kick, 1 : snare, 2 : hihat, 3 : Crash, 4 : Finger snap, 5 : Clap
+    var buffers = new Array(6); // 0 : kick, 1 : snare, 2 : hihat, 3 : Crash, 4 : Finger snap, 5 : Clap
     var buffers_loop = new Array(2);
     var volume_id = new Array("kickVol","snareVol","hihatVol","crashVol","fingerVol","clapVol","guitarVol","jazzyVol");
     var volume_label_id = new Array("kickVolLabel","snareVolLabel","hihatVolLabel","crashVolLabel","fingerVolLabel","clapVolLabel","guitarVolLabel","jazzyVolLabel");
-    var gain_nodes = new Array(7);
+    var gain_nodes = new Array(8);
     for (i  = 0; i < 8; i++) {
         gain_nodes[i] = context.createGain();
         var vol = document.getElementById(volume_id[i]).value;
@@ -314,7 +314,7 @@ body{
 
     function db2gain(db_gain) {
         var gain = 1.0;
-        gain = Math.pow(10,db_gain/10);
+        gain = Math.pow(10.0,db_gain/10.0);
         return gain;
     }
     // keyboard mapping
