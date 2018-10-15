@@ -6,6 +6,7 @@ var song1, song2, song3, analyzer, fft;
 var a=0;
 var b=1;
 var c=1;
+var c2=1;
 var shape = 0;
 
 function preload() {
@@ -58,8 +59,12 @@ function draw() {
 
       rotateZ(frameCount * 0.00002);
       push();
+      fill(255);
+      if(b>0){
+        noFill();
+      }
       stroke(c);
-      sphere(min(windowHeight*0.25,100+sqrt(rms*40000)),3+int(rms*5),2+int(rms*5));
+      sphere(min(windowHeight*0.3,100+sqrt(rms*40000)),3+int(rms*5),2+int(rms*5));
       pop();
 
 
@@ -69,15 +74,17 @@ function draw() {
 
   beginShape();
   for (k = 0; k<spectrum.length; k++) {
-    stroke(0);
-    vertex(-(windowWidth*0.15+k*0.5), map(height*0.5+spectrum[k], 0, height*0.5, height*0.1, 0),frameCount*0.0001 );
+    noFill();
+    stroke(c2);
+    vertex(-(windowWidth*0.15+k*0.5), map(height*0.5+spectrum[k], 0, height*0.5, height*0.25, 0),frameCount*0.0001 );
   }
   endShape();
 
   beginShape();
   for (k = 0; k<spectrum.length; k++) {
-    stroke(0);
-    vertex(windowWidth*0.15+k*0.5,-1*map(height*0.5+spectrum[k], 0, height*0.5, height*0.1, 0),frameCount*0.0001 );
+    noFill();
+    stroke(c2);
+    vertex(windowWidth*0.15+k*0.5,-1*map(height*0.5+spectrum[k], 0, height*0.5, height*0.25, 0),frameCount*0.0001 );
   }
   endShape();
 
@@ -87,8 +94,9 @@ function draw() {
   a++;
   if(a>10){
     b=random(-1,1);
-    c=random(0,200);
-    shape=random(0,199);
+    c=random(10,150);
+    c2=random(30,255);
+    shape=random(0,300);
     a=0;
   }
 
