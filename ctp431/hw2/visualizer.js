@@ -147,7 +147,7 @@ function playmusic3(){
   }
 
   if(song2.isPlaying()){
-    song1.stop();
+    song2.stop();
   }
 
   if(song3.isPlaying()){
