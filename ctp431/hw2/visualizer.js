@@ -76,7 +76,7 @@ function draw() {
   for (k = 0; k<spectrum.length; k++) {
     noFill();
     stroke(c2);
-    vertex(-(windowWidth*0.15+k*0.5), map(height*0.5+spectrum[k], 0, height*0.5, height*0.25, 0),frameCount*0.0001 );
+    vertex(-(windowWidth*0.15+k*0.5), map(height*0.5+spectrum[k], 0, height*0.5, height*0.1, 0),frameCount*0.0001 );
   }
   endShape();
 
@@ -84,7 +84,7 @@ function draw() {
   for (k = 0; k<spectrum.length; k++) {
     noFill();
     stroke(c2);
-    vertex(-(windowWidth*0.15+k*0.5), -1*map(height*0.5+spectrum[k], 0, height*0.5, height*0.25, 0),frameCount*0.0001 );
+    vertex(-(windowWidth*0.15+k*0.5), -1*map(height*0.5+spectrum[k], 0, height*0.5, height*0.1, 0),frameCount*0.0001 );
   }
   endShape();
 
@@ -93,7 +93,7 @@ function draw() {
   for (k = 0; k<spectrum.length; k++) {
     noFill();
     stroke(c2);
-    vertex(windowWidth*0.15+k*0.5,map(height*0.5+spectrum[k], 0, height*0.5, height*0.25, 0),frameCount*0.0001 );
+    vertex(windowWidth*0.15+k*0.5,map(height*0.5+spectrum[k], 0, height*0.5, height*0.1, 0),frameCount*0.0001 );
   }
   endShape();
 
@@ -101,7 +101,7 @@ function draw() {
   for (k = 0; k<spectrum.length; k++) {
     noFill();
     stroke(c2);
-    vertex(windowWidth*0.15+k*0.5,-1*map(height*0.5+spectrum[k], 0, height*0.5, height*0.25, 0),frameCount*0.0001 );
+    vertex(windowWidth*0.15+k*0.5,-1*map(height*0.5+spectrum[k], 0, height*0.5, height*0.1, 0),frameCount*0.0001 );
   }
   endShape();
 
