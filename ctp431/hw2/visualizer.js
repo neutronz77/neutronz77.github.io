@@ -170,6 +170,9 @@ function playmusic3(){
   if(song1.isPlaying()){
     song1.stop();
   }
+  if(song2.isPlaying()){
+    song2.stop();
+  }
 
 
   if(song3.isPlaying()){
