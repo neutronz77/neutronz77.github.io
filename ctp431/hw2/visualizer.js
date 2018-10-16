@@ -1,7 +1,7 @@
 var canvas;
 
 var y = 0;
-var song1, song2, song3 analyzer, fft;
+var song1, song2, song3, analyzer, fft;
 var a=0;
 var b=1;
 var c=1;
