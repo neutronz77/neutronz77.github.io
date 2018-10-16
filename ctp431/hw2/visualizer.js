@@ -1,7 +1,7 @@
 var canvas;
 
 var y = 0;
-var song1, song2, analyzer, fft;
+var song1, song2, song3 analyzer, fft;
 var a=0;
 var b=1;
 var c=1;
@@ -12,6 +12,7 @@ function preload() {
   soundFormats('ogg', 'mp3');
   song1 = loadSound('bgm1.mp3');
   song2 = loadSound('bgm2.mp3');
+  song3 = loadSound('bgm3.mp3');
 }
 
 
@@ -27,6 +28,10 @@ function setup() {
   button2.position(windowWidth*0.9, windowHeight*0.15);
   button2.mousePressed(playmusic2);
 
+  button3 = createButton('BGM 3');
+  button3.position(windowWidth*0.9, windowHeight*0.2);
+  button3.mousePressed(playmusic3);
+
 
   analyzer = new p5.Amplitude();
   fft = new p5.FFT();
@@ -39,6 +44,7 @@ function draw() {
   canvas.position(windowWidth*0.1,100+windowHeight*0.2);
   button1.position(windowWidth*0.9, windowHeight*0.1);
   button2.position(windowWidth*0.9, windowHeight*0.15);
+  button3.position(windowWidth*0.9, windowHeight*0.2);
   background(0);
   var rms = analyzer.getLevel();
   var spectrum = fft.analyze();
@@ -119,6 +125,9 @@ function playmusic1(){
   if(song2.isPlaying()){
     song2.stop();
   }
+  if(song3.isPlaying()){
+    song3.stop();
+  }
 
 
   if(song1.isPlaying()){
@@ -136,6 +145,9 @@ function playmusic2(){
   if(song1.isPlaying()){
     song1.stop();
   }
+  if(song3.isPlaying()){
+    song3.stop();
+  }
 
 
   if(song2.isPlaying()){
@@ -145,5 +157,21 @@ function playmusic2(){
     song2.loop();
     analyzer.setInput(song2);
     fft.setInput(song2);
+  }
+}
+
+function playmusic3(){
+  if(song1.isPlaying()){
+    song1.stop();
+  }
+
+
+  if(song3.isPlaying()){
+    song3.stop();
+  }
+  else{
+    song3.loop();
+    analyzer.setInput(song3);
+    fft.setInput(song3);
   }
 }
