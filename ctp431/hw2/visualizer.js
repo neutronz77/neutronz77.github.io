@@ -17,7 +17,7 @@ function preload() {
 
 
 function setup() {
-  canvas = createCanvas(windowWidth*0.8, windowHeight*0.7, WEBGL);
+  canvas = createCanvas(windowWidth*0.8, windowHeight*0.65, WEBGL);
   canvas.position(windowWidth*0.1,100+windowHeight*0.2);
 
   button1 = createButton('BGM 1');
@@ -40,7 +40,7 @@ function setup() {
 
 function draw() {
 
-  resizeCanvas(windowWidth*0.8, windowHeight*0.7,WEBGL);
+  resizeCanvas(windowWidth*0.8, windowHeight*0.65,WEBGL);
   canvas.position(windowWidth*0.1,100+windowHeight*0.2);
   button1.position(windowWidth*0.9, windowHeight*0.1);
   button2.position(windowWidth*0.9, windowHeight*0.15);
