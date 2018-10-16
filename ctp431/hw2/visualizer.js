@@ -60,7 +60,7 @@ function draw() {
   rotateY(frameCount * (0.003+rms*0.00008*random(-1,1)));
 	for(var j = -1; j < 2; j++){
     push();
-    for(var i = 0; i < 200-shape*b; i++){
+    for(var i = 0; i < 100-shape*b; i++){
 
 
       rotateZ(frameCount * 0.00002);
@@ -70,7 +70,7 @@ function draw() {
         noFill();
       }
       stroke(c);
-      sphere(min(windowHeight*0.3,30+sqrt(rms*40000)),3+int(rms*5),2+int(rms*5));
+      sphere(min(windowHeight*0.3,30+sqrt(rms*50000)),3+int(rms*5),2+int(rms*5));
       pop();
 
 
@@ -117,11 +117,11 @@ function draw() {
   a++;
 
 
-  if(a>10){
+  if(a>50){
     b=random(-1,1);
     c=random(0,180);
     c2=random(30,255);
-    shape=random(0,300);
+    shape=random(0,99);
     a=0;
   }
 
