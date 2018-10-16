@@ -45,10 +45,10 @@ function draw() {
 
   resizeCanvas(windowWidth*0.8, windowHeight*0.6,WEBGL);
   canvas.position(windowWidth*0.1,100+windowHeight*0.2);
-  button1.position(windowWidth*0.95, windowHeight*0.05);
-  button2.position(windowWidth*0.95, windowHeight*0.1);
-  button3.position(windowWidth*0.95, windowHeight*0.15);
-  slider.position(windowWidth*0.475, windowHeight*0.01);
+  button1.position(windowWidth*0.9, windowHeight*0.05);
+  button2.position(windowWidth*0.9, windowHeight*0.1);
+  button3.position(windowWidth*0.9, windowHeight*0.15);
+  slider.position(windowWidth*0.88, windowHeight*0.2);
   background(0);
   var rms = analyzer.getLevel();
   var spectrum = fft.analyze();
