@@ -21,16 +21,19 @@ function setup() {
   canvas.position(windowWidth*0.1,100+windowHeight*0.2);
 
   button1 = createButton('BGM 1');
-  button1.position(windowWidth*0.9, windowHeight*0.1);
+  button1.position(windowWidth*0.95, windowHeight*0.05);
   button1.mousePressed(playmusic1);
 
   button2 = createButton('BGM 2');
-  button2.position(windowWidth*0.9, windowHeight*0.15);
+  button2.position(windowWidth*0.95, windowHeight*0.1);
   button2.mousePressed(playmusic2);
 
   button3 = createButton('BGM 3');
-  button3.position(windowWidth*0.9, windowHeight*0.2);
+  button3.position(windowWidth*0.95, windowHeight*0.15);
   button3.mousePressed(playmusic3);
+
+  slider = createSlider(0,100,100);
+  slider.position(windowWidth*0.475, windowHeight*0.01);
 
 
   analyzer = new p5.Amplitude();
@@ -42,16 +45,19 @@ function draw() {
 
   resizeCanvas(windowWidth*0.8, windowHeight*0.6,WEBGL);
   canvas.position(windowWidth*0.1,100+windowHeight*0.2);
-  button1.position(windowWidth*0.9, windowHeight*0.1);
-  button2.position(windowWidth*0.9, windowHeight*0.15);
-  button3.position(windowWidth*0.9, windowHeight*0.2);
+  button1.position(windowWidth*0.95, windowHeight*0.05);
+  button2.position(windowWidth*0.95, windowHeight*0.1);
+  button3.position(windowWidth*0.95, windowHeight*0.15);
+  slider.position(windowWidth*0.475, windowHeight*0.01);
   background(0);
   var rms = analyzer.getLevel();
   var spectrum = fft.analyze();
 
+  song1.amp(slider.value()*0.01);
+  song2.amp(slider.value()*0.01);
+  song3.amp(slider.value()*0.01);
 
-
-  rotateY(frameCount * (0.003+rms*0.0001*random(-1,1)));
+  rotateY(frameCount * (0.003+rms*0.00008*random(-1,1)));
 	for(var j = -1; j < 2; j++){
     push();
     for(var i = 0; i < 200-shape*b; i++){
@@ -64,7 +70,7 @@ function draw() {
         noFill();
       }
       stroke(c);
-      sphere(min(windowHeight*0.3,100+sqrt(rms*40000)),3+int(rms*5),2+int(rms*5));
+      sphere(min(windowHeight*0.3,30+sqrt(rms*40000)),3+int(rms*5),2+int(rms*5));
       pop();
 
 
@@ -113,7 +119,7 @@ function draw() {
 
   if(a>10){
     b=random(-1,1);
-    c=random(10,150);
+    c=random(0,180);
     c2=random(30,255);
     shape=random(0,300);
     a=0;
