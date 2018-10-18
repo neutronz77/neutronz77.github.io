@@ -122,7 +122,7 @@ function draw() {
 
 
   beginShape();
-  for (k = fft1; k<fft1+25; k++) {
+  for (k = fft1; k<fft1+50; k++) {
 
     noFill();
     stroke(255);
@@ -132,7 +132,7 @@ function draw() {
   endShape();
 
   beginShape();
-  for (k = fft1; k<fft1+25; k++) {
+  for (k = fft1; k<fft1+50; k++) {
 
     noFill();
     stroke(255);
@@ -142,7 +142,7 @@ function draw() {
   endShape();
 
   beginShape();
-  for (k = fft1; k<fft1+25; k++) {
+  for (k = fft1; k<fft1+50; k++) {
 
     noFill();
     stroke(255);
@@ -152,7 +152,7 @@ function draw() {
   endShape();
 
   beginShape();
-  for (k = fft1; k<fft1+25; k++) {
+  for (k = fft1; k<fft1+50; k++) {
 
     noFill();
     stroke(255);
