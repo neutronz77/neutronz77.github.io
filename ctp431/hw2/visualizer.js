@@ -7,6 +7,7 @@ var b=1;
 var c=1;
 var c2=1;
 var shape = 0;
+var fft1=0;
 
 function preload() {
   soundFormats('ogg', 'mp3');
@@ -57,7 +58,14 @@ function draw() {
   song2.amp(slider.value()*0.01);
   song3.amp(slider.value()*0.01);
 
-  rotateY(frameCount * (0.003+rms*0.00008*random(-1,1)));
+  var bassline = 0;
+  for (k = 2; k<4; k++) {
+  bassline=spectrum[k];
+  }
+  bassline=bassline/2;
+
+  rotateY(frameCount/200 + (0.01*rms+bassline*0.001)*random(-1,1));
+
 	for(var j = -1; j < 2; j++){
     push();
     for(var i = 0; i < 100-shape*b; i++){
@@ -94,7 +102,6 @@ function draw() {
   }
   endShape();
 
-
   beginShape();
   for (k = 0; k<spectrum.length; k++) {
     noFill();
@@ -114,13 +121,61 @@ function draw() {
   stroke(0);
 
 
+  beginShape();
+  for (k = fft1; k<fft1+25; k++) {
+
+    noFill();
+    stroke(255);
+    vertex(-(windowWidth*0.15+k*0.5), map(height*0.5+spectrum[k], 0, height*0.5, height*0.1, 0),frameCount*0.0001 );
+
+  }
+  endShape();
+
+  beginShape();
+  for (k = fft1; k<fft1+25; k++) {
+
+    noFill();
+    stroke(255);
+    vertex(-(windowWidth*0.15+k*0.5), -1*map(height*0.5+spectrum[k], 0, height*0.5, height*0.1, 0),frameCount*0.0001 );
+
+  }
+  endShape();
+
+  beginShape();
+  for (k = fft1; k<fft1+25; k++) {
+
+    noFill();
+    stroke(255);
+    vertex(windowWidth*0.15+k*0.5, map(height*0.5+spectrum[k], 0, height*0.5, height*0.1, 0),frameCount*0.0001 );
+
+  }
+  endShape();
+
+  beginShape();
+  for (k = fft1; k<fft1+25; k++) {
+
+    noFill();
+    stroke(255);
+    vertex(windowWidth*0.15+k*0.5, -1*map(height*0.5+spectrum[k], 0, height*0.5, height*0.1, 0),frameCount*0.0001 );
+
+  }
+  endShape();
+
+  fft1+=5;
+  if(fft1>spectrum.length){
+    fft1=0;
+  }
+
+
+
+
   a++;
 
 
-  if(a>50){
+  if(a>20){
     b=random(-1,1);
     c=random(0,180);
-    c2=random(30,255);
+    c2=random(0,150);
     shape=random(0,99);
     a=0;
   }
