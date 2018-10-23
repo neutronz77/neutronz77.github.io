@@ -64,7 +64,7 @@ function draw() {
   }
   bassline=bassline/2;
 
-  rotateY(frameCount/800 + (0.01*rms+bassline*0.0015)*random(-1,1));
+  rotateY(frameCount/500 + (0.01*rms+bassline*0.0015)*random(-1,1));
 
 	for(var j = -1; j < 2; j++){
     push();
