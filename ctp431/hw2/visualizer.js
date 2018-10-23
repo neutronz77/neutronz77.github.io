@@ -174,7 +174,7 @@ function draw() {
 
   if(a>20){
     b=random(-1,1);
-    c=random(0,180);
+    c=random(50,180);
     c2=random(0,150);
     shape=random(0,99);
     a=0;
