@@ -215,7 +215,7 @@ function play_kick()
 
 function play_lowtom()
 {
-	var low_tom = new TR808Tone1(context, 100, 'linear', 1, 2);
+	var low_tom = new TR808Tone1(context, 100, 'linear', 0.5, 3);
 	var now = context.currentTime;
 
 	low_tom.trigger(now);
@@ -224,7 +224,7 @@ function play_lowtom()
 
 function play_midtom()
 {
-	var mid_tom = new TR808Tone1(context, 500, 'linear', 1, 0.5);
+	var mid_tom = new TR808Tone1(context, generateRandom(300,500), 'linear', 1, 0.5);
 	var now = context.currentTime;
 
 	mid_tom.trigger(now);
@@ -232,10 +232,13 @@ function play_midtom()
 
 function play_hightom()
 {
-	var high_tom = new TR808Tone1(context, 800, 'linear', 0.8, 3);
-	var now = context.currentTime;
+	var high_tom1 = new TR808Tone1(context, generateRandom(500,2000), 'linear', 0.4, generateRandom(0.2,1.5));
 
-	high_tom.trigger(now);
+
+  var now = context.currentTime;
+
+	high_tom1.trigger(now);
+
 }
 
 function play_snare()
@@ -248,7 +251,7 @@ function play_snare()
 
 function play_open_hihat()
 {
-	var snare = new TR808Tone2(context, 1000, 0.1, 0.4);
+	var snare = new TR808Tone2(context, generateRandom(1000,2000), 0.15, 0.4);
 	var now = context.currentTime;
 
 	snare.trigger(now);
@@ -346,4 +349,9 @@ function MIDIMessageEventHandler(event) {
 			//synth.noteOff(event.data[1], event.data[2]);
 			return;
 	}
+}
+
+var generateRandom = function (min, max) {
+  var ranNum = Math.floor(Math.random()*(max-min+1)) + min;
+  return ranNum;
 }
