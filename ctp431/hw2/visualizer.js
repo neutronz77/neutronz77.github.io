@@ -121,54 +121,6 @@ function draw() {
   stroke(0);
 
 
-  beginShape();
-  for (k = fft1; k<fft1+50; k++) {
-
-    noFill();
-    stroke(255);
-    vertex(-(windowWidth*0.15+k*0.5), map(height*0.5+spectrum[k], 0, height*0.5, height*0.1, 0),frameCount*0.0001 );
-
-  }
-  endShape();
-
-  beginShape();
-  for (k = fft1; k<fft1+50; k++) {
-
-    noFill();
-    stroke(255);
-    vertex(-(windowWidth*0.15+k*0.5), -1*map(height*0.5+spectrum[k], 0, height*0.5, height*0.1, 0),frameCount*0.0001 );
-
-  }
-  endShape();
-
-  beginShape();
-  for (k = fft1; k<fft1+50; k++) {
-
-    noFill();
-    stroke(255);
-    vertex(windowWidth*0.15+k*0.5, map(height*0.5+spectrum[k], 0, height*0.5, height*0.1, 0),frameCount*0.0001 );
-
-  }
-  endShape();
-
-  beginShape();
-  for (k = fft1; k<fft1+50; k++) {
-
-    noFill();
-    stroke(255);
-    vertex(windowWidth*0.15+k*0.5, -1*map(height*0.5+spectrum[k], 0, height*0.5, height*0.1, 0),frameCount*0.0001 );
-
-  }
-  endShape();
-
-  fft1+=5;
-  if(fft1>spectrum.length){
-    fft1=0;
-  }
-
-
-
-
   a++;
 
 
