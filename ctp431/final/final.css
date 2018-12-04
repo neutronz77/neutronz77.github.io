@@ -1,0 +1,202 @@
+button {
+    padding: 5px;
+    background: rgb(200, 200, 200);
+    border: 1px solid rgb(122, 122, 122);
+    border-radius: 2px;
+    outline: none;
+    width:120px;
+    height:120px;
+    font-size:15px
+}
+
+button.active, button:active {
+    background: rgb(100, 100, 100);
+    border: 1px solid rgb(0,0,0);
+    box-shadow: 0 0 2px 0 rgb(0,0,0);
+}
+
+p.seq_Label {
+    font-family: "Serif",Gadget, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 5px;
+    padding: 5.6px;
+    margin: 5px 0px 5px 0px;
+}
+
+p.seq_Label2 {
+    font-family: "Serif",Gadget, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 200;
+    line-height: 10px;
+    padding: 12px;
+    float:left;
+}
+
+p.panel_label {
+    font-family: "Arial", Gadget, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 1  0px;
+    padding: 5px;
+    margin: 5px 0px 5px 0px;
+    clear:left;
+}
+
+p.onoff{
+    margin: 10px 10px 10px 10px;
+    float:left;
+}
+
+p.dial{
+    margin: 10px 10px 10px 20px;
+    float:left;
+}
+p.number{
+    margin: 10px 10px 10px 80px;
+    float:left;
+}
+
+#seq_label{
+    padding:10px;
+    background: rgb(250, 250, 250);
+    width:30px;
+    height:300px;
+    margin-left:2.2%;
+    float:left;
+}
+
+#seq_label2{
+    padding:10px;
+    background: rgb(250, 250, 250);
+    width:60px;
+    height:300px;
+    margin-right:3%;
+    float:left;
+}
+
+#sequencer{
+    padding:10px;
+    background: rgb(120, 120, 120);
+    margin-left:5px;
+    float:left;
+}
+
+#drumline{
+    padding:10px;
+    margin-left:1%;
+    margin-right:5px;
+    background: rgb(120, 120, 120);
+    float:left;
+}
+
+#transport1{
+    padding:10px;
+    margin-top : 50px;
+    margin-left : 3%;
+    background: rgb(220, 220, 220);
+    width:200px;
+    height:250px;
+    clear:left;
+    float:left;
+}
+
+#transport2{
+    padding:10px;
+    margin: 50px 0px 0px 5px;
+    background: rgb(220, 220, 220);
+    width:200px;
+    height:250px;
+    float:left;
+}
+
+
+#tempo{
+    padding:10px;
+    margin: 50px 0px 0px 5px;
+    background: rgb(220, 220, 220);
+    width:200px;
+    height:250px;
+    float:left;
+}
+
+#complexity{
+    padding:10px;
+    margin: 50px 0px 0px 5px;
+    background: rgb(220, 220, 220);
+    width:200px;
+    height:250px;
+    float:left;
+}
+
+#play_button{
+    margin: 20px 10px 10px 25px;
+    float:center;
+}
+
+#random_button{
+    margin: 20px 10px 10px 25px;
+    float:center;
+}
+
+#random_button2{
+    margin: 20px 10px 10px 25px;
+    float:center;
+}
+
+#random_button3{
+    margin: 20px 10px 10px 25px;
+    float:center;
+}
+
+#random_button4{
+    margin: 20px 10px 10px 25px;
+    float:center;
+}
+
+#random_button5{
+    margin: 20px 10px 10px 25px;
+    float:center;
+}
+
+#effect_onoff{
+    margin: 5px 10px 10px 50px;
+    float:center;
+}
+
+#clean{
+    margin: 20px 10px 10px 25px;
+    float:center;
+}
+
+
+#mono_onoff{
+    margin: 10px 0px 0px 55px;
+    clear:left;
+}
+
+#tempo_dial{
+    margin: 5px 0px 0px 65px;
+    clear:left;
+}
+
+#tempo_number{
+    margin: 5px 0px 0px 72px;
+    clear:left;
+}
+
+#complexity_dial{
+    margin: 5px 0px 0px 65px;
+    clear:left;
+}
+
+#complexity_number{
+    margin: 5px 0px 0px 72px;
+    clear:left;
+}

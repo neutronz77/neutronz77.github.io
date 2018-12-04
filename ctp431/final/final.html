@@ -1,0 +1,501 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title> AutoMusicGenerator  </title>
+	<script type="text/javascript" src="Tone.js"></script>
+	<script type="text/javascript" src="Tone.min.js"></script>
+	<script type="text/javascript" src="./NexusUI.js"></script>
+	<script type="text/javascript" src="./final.js"></script>
+	<script src="final_tonejs.js"></script>
+	<link  href='final.css' rel='stylesheet'>
+</head>
+
+
+<body style="background-color:RGB(0,0,0);">
+	<h1 style="text-align: center; font-size:100px; font-family:Serif; color:RGB(200,200,200);">What is Your Sound?
+	<input type="text" name="id">
+	<input type="submit" value="Submit ID number">
+	</h1>
+
+	<div id="seq_label">
+	<p id="note14" class="seq_Label" ></p>
+	<p id="note13" class="seq_Label"></p>
+	<p id="note12" class="seq_Label" ></p>
+	<p id="note11" class="seq_Label"></p>
+	<p id="note10" class="seq_Label"></p>
+	<p id="note9" class="seq_Label"></p>
+	<p id="note8" class="seq_Label"></p>
+	<p id="note7" class="seq_Label"></p>
+	<p id="note6" class="seq_Label"></p>
+	<p id="note5" class="seq_Label"></p>
+	<p id="note4" class="seq_Label"></p>
+	<p id="note3" class="seq_Label" ></p>
+	<p id="note2" class="seq_Label"></p>
+	<p id="note1" class="seq_Label"></p>
+	</div>
+
+	<div id="sequencer"></div>
+
+	<div id="drumline"></div>
+
+	<div id="seq_label2">
+	<p class="seq_Label2" > 808Bass </p>
+	<p class="seq_Label2" > Open Hi-Hat </p>
+	<p class="seq_Label2" > Hi-Hat </p>
+	<p class="seq_Label2" > Snare </p>
+	<p class="seq_Label2" > Kick </p>
+	</div>
+	
+	<br>
+
+	<div id="transport1">
+		<p class="panel_label" style="text-align: center"> Play/Stop </p>
+		<p id="play_button"> </p>
+	</div>
+
+	<div id="complexity">
+		<div>
+			<p class="panel_label" style="text-align:center"> complexity</p>
+		</div>
+		<div id="complexity_dial"></div>
+		<div id="complexity_number" style="text-align: center"></div>
+		<p style="text-align:center"> Mono / Poly</p>
+		<div id="mono_onoff"></div>
+	</div>
+
+	<div id="transport2">
+		<p class="panel_label" style="text-align: center"> Melody Generator </p>
+		<p id="random_button"> </p>
+		<p id="clean"> </p>
+	</div>
+
+	<div id="transport2">
+		<p class="panel_label" style="text-align: center"> Scale Generator </p>
+		<p id="random_button2"> </p>
+		<div id="random_root" style="text-align: center"></div>
+		<div id="random_major" style="text-align: center"></div>
+	</div>
+
+	<div id="transport2">
+		<p class="panel_label" style="text-align: center"> Synth Generator </p>
+		<p id="random_button3"> </p>
+		<div id="synth_num" style="text-align: center"></div>
+		<div id="random_synth" style="text-align: center"></div>
+	</div>
+
+	<div id="transport2">
+		<p class="panel_label" style="text-align: center"> Envelope Generator </p>
+		<p id="random_button5"> </p>
+		<div id="attack_val" style="font-size:12px; text-align: center"></div>
+		<div id="decay_val" style="font-size:12px; text-align: center"></div>
+	</div>
+
+	<div id="transport2">
+		<p class="panel_label" style="text-align: center"> Effect Generator </p>
+		<p id="random_button4"> </p>
+		<div id="filter_val" style="font-size:12px; text-align: center"></div>
+		<div id="reverb_val" style="font-size:12px; text-align: center"></div>
+		<div id="delay_val" style="font-size:12px; text-align: center"></div>
+	</div>
+
+	<div id="tempo">
+		<div>
+			<p class="panel_label" style="text-align:center"> Tempo (bpm)</p>
+		</div>
+		<div id="tempo_dial"></div>
+		<div id="tempo_number" style="text-align: center"></div>
+	</div>
+
+</body>
+
+<script>
+
+var sequencer = new Nexus.Sequencer('#sequencer',{
+ 'size': [800,300],
+ 'mode': 'toggle',
+ 'rows': 14,
+ 'columns': 16
+})
+sequencer.colorize("fill","#cccccc")
+sequencer.colorize("accent","#9999ff")
+sequencer.matrix.set.row(6,[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]);
+sequencer.matrix.set.row(7,[0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0]);
+sequencer.matrix.set.row(9,[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0]);
+sequencer.matrix.set.row(11,[0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0]);
+sequencer.matrix.set.row(13,[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+
+var drumline = new Nexus.Sequencer('#drumline',{
+ 'size': [800,300],
+ 'mode': 'toggle',
+ 'rows': 5,
+ 'columns': 16
+})
+drumline.colorize("fill","#cccccc")
+drumline.colorize("accent","#9999ff")
+drumline.matrix.set.row(4,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+
+// play/stop button
+var play_button = new Nexus.TextButton('#play_button',{
+  'size': [150,50],
+  'state': false,
+  'text': 'Play',
+  'alternate': false,
+  'alternateText': 'Stop'
+})
+
+var random_button = new Nexus.TextButton('#random_button',{
+  'size': [150,50],
+  'state': false,
+  'text': 'Random Set',
+  'alternate': false,
+  'alternateText': 'Random Set'
+})
+
+var random_button2 = new Nexus.TextButton('#random_button2',{
+  'size': [150,50],
+  'state': false,
+  'text': 'Random Set',
+  'alternate': false,
+  'alternateText': 'Random Set'
+})
+
+var random_button3 = new Nexus.TextButton('#random_button3',{
+  'size': [150,50],
+  'state': false,
+  'text': 'Random Set',
+  'alternate': false,
+  'alternateText': 'Random Set'
+})
+
+var random_button4 = new Nexus.TextButton('#random_button4',{
+  'size': [150,50],
+  'state': false,
+  'text': 'Random Set',
+  'alternate': false,
+  'alternateText': 'Random Set'
+})
+
+var random_button5 = new Nexus.TextButton('#random_button5',{
+  'size': [150,50],
+  'state': false,
+  'text': 'Random Set',
+  'alternate': false,
+  'alternateText': 'Random Set'
+})
+
+
+var clean = new Nexus.TextButton('#clean',{
+  'size': [150,50],
+  'state': false,
+  'text': 'Clean'
+})
+
+
+var tempo_dial = new Nexus.Dial('#tempo_dial',{
+  'size': [75,75],
+  'interaction': 'radial',
+  'mode': 'absolute',
+  'min': 60,
+  'max': 180,
+  'step': 1,
+  'value': 150
+})
+tempo_dial.colorize("accent","#6495ED")
+tempo_dial.colorize("fill","#F0FFFF")
+var tempo_number = new Nexus.Number('#tempo_number',{
+  'size': [60,30],
+  'min': 60,
+  'max': 180,
+  'step': 1
+})
+tempo_number.link(tempo_dial)
+sequencer.interval.ms(60000/(4*tempo_number.value))
+drumline.interval.ms(60000/(4*tempo_number.value))
+
+
+
+var complexity_dial = new Nexus.Dial('#complexity_dial',{
+  'size': [75,75],
+  'interaction': 'radial',
+  'mode': 'absolute',
+  'min': 0,
+  'max': 100,
+  'step': 1,
+  'value': 0
+})
+complexity_dial.colorize("accent","#6495ED")
+complexity_dial.colorize("fill","#F0FFFF")
+var complexity_number = new Nexus.Number('#complexity_number',{
+  'size': [60,30],
+  'min': 0,
+  'max': 100,
+  'step': 1
+})
+complexity_number.link(complexity_dial)
+
+
+
+
+var mono_onoff = new Nexus.Toggle('#mono_onoff',{
+    'size': [100,20],
+    'state': false
+})
+mono_onoff.colorize("accent","#FF6666")
+mono_onoff.colorize("fill","#FFFFFF")
+
+
+///////////////////////////////////////////////////
+
+play_button.on('change',function(v) {
+	if (v == 1) {
+		sequencer.start();
+		drumline.start();
+
+		console.log(sequencer.matrix.pattern)
+		console.log(drumline.matrix.pattern)
+		if(synth_number!=5){
+			document.getElementById("random_synth").innerHTML = "synth type = "+ synth.oscillator.type;
+		}
+		else{
+			document.getElementById("random_synth").innerHTML = "synth type = PolySynth";
+		}
+
+	}
+	else {
+		sequencer.stop();
+		drumline.stop();
+		if(synth_number!=5){
+			document.getElementById("random_synth").innerHTML = "synth type = "+ synth.oscillator.type;
+		}
+		else{
+			document.getElementById("random_synth").innerHTML = "synth type = PolySynth";
+		}
+	}
+})
+
+/////////////////////////////////////////////
+
+var w1 = 0.1;
+var w2 = 0;
+var w3 = 0;
+var w1_mono = 0.8;
+var w2_mono = 0.6;
+var w3_mono = 0;
+
+complexity_dial.on('change',function(v) {
+	w1 = 0.1+v*0.004;
+	w1_mono = 0.8+v*0.002;
+	w2 = v*0.0035;
+	w2_mono = 0.6+v*0.004;
+	if(v<50){
+		w3=0;
+		w3_mono = 0;
+	}
+	else{
+		w3 = (v-50)*0.004;
+		w3_mono = (v-50)*0.016
+	}
+})
+
+///////////////////////////////////////////////////
+
+
+mono_onoff.on('change',function(v) {
+	if(v==0){
+		mono_or_poly = 0;
+	}
+	else{
+		mono_or_poly = 1;
+		synth_number=5;
+		document.getElementById("synth_num").innerHTML = synth_number;
+		document.getElementById("random_synth").innerHTML = "synth type = PolySynth";
+	}
+})
+
+////////////////////////////////////////////////
+
+
+random_button.on('change',function(v) {
+	if(mono_or_poly==0){
+		getRandomNode_mono(w1_mono,w2_mono,w3_mono);
+		}
+	else if(mono_or_poly==1){
+		for(var i=0; i<14; i++){
+			sequencer.matrix.set.row(i,getRandomNode(w1,w2,w3));
+		}
+	}
+
+})
+
+////////////////////////////////////////
+
+var generated_root = 'C';
+var major_or_minor = 1;
+
+document.getElementById("random_root").innerHTML = generated_root;
+if(major_or_minor==1){
+	document.getElementById("random_major").innerHTML = "Major";
+}
+else if(major_or_minor==0){
+	document.getElementById("random_major").innerHTML = "Minor";
+}
+
+random_button2.on('change',function(v) {
+	generated_root = generate_root()
+	major_or_minor = generate_major()
+	document.getElementById("random_root").innerHTML = generated_root;
+	if(major_or_minor==1){
+		document.getElementById("random_major").innerHTML = "Major";
+	}
+	else if(major_or_minor==0){
+		document.getElementById("random_major").innerHTML = "Minor";
+	}
+
+})
+
+
+/////////////////////////////////////////
+
+
+var synth_number=1;
+document.getElementById("synth_num").innerHTML = synth_number;
+document.getElementById("random_synth").innerHTML = "synth type = "+ synth1.oscillator.type;
+
+random_button3.on('change',function(v) {
+	if(mono_or_poly==0){
+		synth_number = generateRandom(1,4);
+	}
+	else if(mono_or_poly==1){
+		synth_number = 5
+	}
+
+	document.getElementById("synth_num").innerHTML = synth_number;
+	if(synth_number==1){
+		document.getElementById("random_synth").innerHTML = "synth type = "+ synth1.oscillator.type;
+	}
+	else if(synth_number==2){
+		document.getElementById("random_synth").innerHTML = "synth type = "+ synth2.oscillator.type;
+	}
+	else if(synth_number==3){
+		document.getElementById("random_synth").innerHTML = "synth type = "+ synth3.oscillator.type;
+	}
+	else if(synth_number==4){
+		document.getElementById("random_synth").innerHTML = "synth type = "+ synth4.oscillator.type;
+	}
+	else if(synth_number==5){
+		document.getElementById("random_synth").innerHTML = "synth type = PolySynth";
+	}
+})
+
+///////////////////////////////////////////////
+
+document.getElementById("filter_val").innerHTML = "HighPass Filter Value (0~10000) <br>"+ filter.frequency.value;
+document.getElementById("reverb_val").innerHTML = "Reverb Value (0~1) <br>"+ reverb.roomSize.value.toFixed(5);
+document.getElementById("delay_val").innerHTML = "delay feedback/wet Value <br>"+ delay.feedback.value.toFixed(5)+"/"+delay.wet.value.toFixed(5);
+
+random_button4.on('change',function(v) {
+	effect_generator();
+	document.getElementById("filter_val").innerHTML = "HighPass Filter Value (0~10000) <br>"+ filter.frequency.value;
+	document.getElementById("reverb_val").innerHTML = "Reverb Value (0~1) <br>"+ reverb.roomSize.value.toFixed(5);
+	document.getElementById("delay_val").innerHTML = "delay feedback/wet Value <br>"+ delay.feedback.value.toFixed(5)+"/"+delay.wet.value.toFixed(5);
+})
+
+document.getElementById("attack_val").innerHTML = "Attack Value <br>"+synth1.envelope.attack;
+document.getElementById("decay_val").innerHTML = "Decay Value<br>"+synth1.envelope.decay;
+
+random_button5.on('change',function(v) {
+	if(synth_number!=5){
+		envelope_generator();
+		document.getElementById("attack_val").innerHTML = "Attack Value <br>"+synth.envelope.attack;
+		document.getElementById("decay_val").innerHTML = "Decay Value<br>"+synth.envelope.decay;
+	}
+})
+
+
+////////////////////////////////////////////////////
+
+clean.on('change',function(v) {
+	for(var i=0; i<14; i++){
+		sequencer.matrix.set.row(i,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+	}
+	for(var i=0; i<5; i++){
+		drumline.matrix.set.row(i,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+	}
+})
+
+
+////////////////////////////////////////////////////////////
+
+tempo_dial.on('change',function(v) {
+	var interval = 60000 / (4*v);
+	sequencer.interval.ms(interval)
+	drumline.interval.ms(interval)
+})
+
+///////////////////////////////////////
+
+drumline.on('step',function(v) {
+	if (v[0] == 1) {
+		play_kick();
+	}
+	if (v[1] == 1) {
+		play_snare();
+	}
+	if (v[2] == 1) {
+		play_close_hihat();
+	}
+	if (v[3] == 1) {
+		play_open_hihat();
+	}
+	if (v[4] == 1) {
+		play_808();
+	}
+})
+
+sequencer.on('step',function(v) {
+	for(var i=0; i<14; i++){
+		if(v[i] == 1){
+			play_synth(generated_root, major_or_minor, i, synth_number);
+		}
+	}
+
+	var played_scale_char=[0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+	for(var i=0;i<14;i++){
+		for(var k=0;k<12; k++)
+		{
+			if(played_scale[i]%octave45[k]==0)
+			{
+				if(played_scale[i]*2==octave45[k+12])
+				{
+					played_scale_char[i] = notes[k]+'4';
+				}
+				else{
+					played_scale_char[i] = notes[k]+'5';
+				}
+			}
+		}
+	}
+	document.getElementById("note1").innerHTML = played_scale_char[0];
+	document.getElementById("note2").innerHTML = played_scale_char[1];
+	document.getElementById("note3").innerHTML = played_scale_char[2];
+	document.getElementById("note4").innerHTML = played_scale_char[3];
+	document.getElementById("note5").innerHTML = played_scale_char[4];
+	document.getElementById("note6").innerHTML = played_scale_char[5];
+	document.getElementById("note7").innerHTML = played_scale_char[6];
+	document.getElementById("note8").innerHTML = played_scale_char[7];
+	document.getElementById("note9").innerHTML = played_scale_char[8];
+	document.getElementById("note10").innerHTML = played_scale_char[9];
+	document.getElementById("note11").innerHTML = played_scale_char[10];
+	document.getElementById("note12").innerHTML = played_scale_char[11];
+	document.getElementById("note13").innerHTML = played_scale_char[12];
+	document.getElementById("note14").innerHTML = played_scale_char[13];
+})
+
+
+
+</script>
+
+
+</html>
