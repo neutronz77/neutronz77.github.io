@@ -55,7 +55,22 @@ envelope: {
 }
 }).toMaster()
 
-var synth5 = new Tone.PolySynth(6, Tone.Synth, {
+var synth5 = new Tone.MembraneSynth({
+pitchDecay  : 0.05 ,
+octaves  : 10 ,
+oscillator  : {
+type  : "sine"
+}  ,
+envelope  : {
+attack  : 0.001 ,
+decay  : 0.4 ,
+sustain  : 0.01 ,
+release  : 1.4 ,
+attackCurve  : "exponential"
+}
+}).toMaster()
+
+var synth0 = new Tone.PolySynth(6, Tone.Synth, {
 			"oscillator" : {
 				"partials" : [0, 2, 3, 4],
 			}
@@ -131,6 +146,9 @@ function play_synth(root, major, i, synthnum){
   else if(synthnum==5){
     synth = synth5;
   }
+  else if(synthnum==0){
+    synth = synth0;
+  }
 
 
     synth.connect(delay);
@@ -144,7 +162,7 @@ function play_synth(root, major, i, synthnum){
 
   length = Math.random();
   played_scale = make_scale(root, major);
-  if(synthnum!=5){
+  if(synthnum!=0){
     synth.triggerAttackRelease(played_scale[i],"8n")
   }
   else{
@@ -197,7 +215,7 @@ function make_scale(root, major){
 }
 
 function effect_generator(){
-  filter.frequency.value = generateRandom(1500,10000);
+  filter.frequency.value = generateRandom(2000,10000);
   reverb.roomSize.value = Math.random();
   delay.wet.value = Math.min(0.6,Math.random());
   delay.feedback.value = Math.random()/2;

@@ -14,7 +14,7 @@
 
 
 <body style="background-color:RGB(0,0,0);">
-	<h1 style="text-align: center; font-size:100px; font-family:Serif; color:RGB(200,200,200);">What is Your Sound?
+	<h1 style="text-align: center; font-size:100px; font-family:Serif; color:RGB(200,200,200);">What's Your Music?
 	<input type="text" name="id">
 	<input type="submit" value="Submit ID number">
 	</h1>
@@ -47,7 +47,7 @@
 	<p class="seq_Label2" > Snare </p>
 	<p class="seq_Label2" > Kick </p>
 	</div>
-	
+
 	<br>
 
 	<div id="transport1">
@@ -69,6 +69,8 @@
 		<p class="panel_label" style="text-align: center"> Melody Generator </p>
 		<p id="random_button"> </p>
 		<p id="clean"> </p>
+		<p style="text-align:center"> Change for each loop</p>
+		<div id="loop_change_onoff"></div>
 	</div>
 
 	<div id="transport2">
@@ -246,6 +248,14 @@ mono_onoff.colorize("accent","#FF6666")
 mono_onoff.colorize("fill","#FFFFFF")
 
 
+var loop_change_onoff = new Nexus.Toggle('#loop_change_onoff',{
+    'size': [100,20],
+    'state': false
+})
+mono_onoff.colorize("accent","#FF6666")
+mono_onoff.colorize("fill","#FFFFFF")
+
+
 ///////////////////////////////////////////////////
 
 play_button.on('change',function(v) {
@@ -308,9 +318,20 @@ mono_onoff.on('change',function(v) {
 	}
 	else{
 		mono_or_poly = 1;
-		synth_number=5;
+		synth_number=0;
 		document.getElementById("synth_num").innerHTML = synth_number;
 		document.getElementById("random_synth").innerHTML = "synth type = PolySynth";
+	}
+})
+
+////////////////////////////////////////////////
+var loop_change = 0;
+loop_change_onoff.on('change',function(v) {
+	if(v==0){
+		loop_change = 0;
+	}
+	else{
+		loop_change = 1;
 	}
 })
 
@@ -365,10 +386,10 @@ document.getElementById("random_synth").innerHTML = "synth type = "+ synth1.osci
 
 random_button3.on('change',function(v) {
 	if(mono_or_poly==0){
-		synth_number = generateRandom(1,4);
+		synth_number = generateRandom(1,5);
 	}
 	else if(mono_or_poly==1){
-		synth_number = 5
+		synth_number = 0
 	}
 
 	document.getElementById("synth_num").innerHTML = synth_number;
@@ -385,6 +406,9 @@ random_button3.on('change',function(v) {
 		document.getElementById("random_synth").innerHTML = "synth type = "+ synth4.oscillator.type;
 	}
 	else if(synth_number==5){
+		document.getElementById("random_synth").innerHTML = "synth type = MembraneSynth";
+	}
+	else if(synth_number==0){
 		document.getElementById("random_synth").innerHTML = "synth type = PolySynth";
 	}
 })
@@ -402,11 +426,13 @@ random_button4.on('change',function(v) {
 	document.getElementById("delay_val").innerHTML = "delay feedback/wet Value <br>"+ delay.feedback.value.toFixed(5)+"/"+delay.wet.value.toFixed(5);
 })
 
+///////////////////////////////////////////////////////
+
 document.getElementById("attack_val").innerHTML = "Attack Value <br>"+synth1.envelope.attack;
 document.getElementById("decay_val").innerHTML = "Decay Value<br>"+synth1.envelope.decay;
 
 random_button5.on('change',function(v) {
-	if(synth_number!=5){
+	if(synth_number!=0){
 		envelope_generator();
 		document.getElementById("attack_val").innerHTML = "Attack Value <br>"+synth.envelope.attack;
 		document.getElementById("decay_val").innerHTML = "Decay Value<br>"+synth.envelope.decay;
@@ -491,6 +517,19 @@ sequencer.on('step',function(v) {
 	document.getElementById("note12").innerHTML = played_scale_char[11];
 	document.getElementById("note13").innerHTML = played_scale_char[12];
 	document.getElementById("note14").innerHTML = played_scale_char[13];
+
+	if(sequencer.stepper.value == 15){
+		if(loop_change==1){
+			if(mono_or_poly==0){
+				getRandomNode_mono(w1_mono,w2_mono,w3_mono);
+				}
+			else if(mono_or_poly==1){
+				for(var i=0; i<14; i++){
+					sequencer.matrix.set.row(i,getRandomNode(w1,w2,w3));
+				}
+			}
+		}
+	}
 })
 
 
