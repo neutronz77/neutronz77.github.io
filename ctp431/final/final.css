@@ -15,6 +15,44 @@ button.active, button:active {
     box-shadow: 0 0 2px 0 rgb(0,0,0);
 }
 
+a:link {
+  color: rgb(100, 100, 250);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(200, 150, 250);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(200, 50, 50);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: rgb(250, 250, 250);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+p.introduction {
+    font-family: "Serif",Gadget, sans-serif;
+    font-size: 18px;
+    margin-left : 20px;
+    line-height : 30px;
+    color:RGB(250,250,250);
+}
+
+p.intro_head {
+    font-family: "Serif",Gadget, sans-serif;
+    font-size: 30px;
+    color:RGB(250,250,250);
+}
+
 p.seq_Label {
     font-family: "Serif",Gadget, sans-serif;
     font-size: 12px;

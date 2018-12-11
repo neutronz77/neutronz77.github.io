@@ -415,14 +415,14 @@ random_button3.on('change',function(v) {
 
 ///////////////////////////////////////////////
 
-document.getElementById("filter_val").innerHTML = "HighPass Filter Value (0~10000) <br>"+ filter.frequency.value;
-document.getElementById("reverb_val").innerHTML = "Reverb Value (0~1) <br>"+ reverb.roomSize.value.toFixed(5);
+document.getElementById("filter_val").innerHTML = "HighPass Filter Value <br>"+ filter.frequency.value;
+document.getElementById("reverb_val").innerHTML = "Reverb Value <br>"+ reverb.roomSize.value.toFixed(5);
 document.getElementById("delay_val").innerHTML = "delay feedback/wet Value <br>"+ delay.feedback.value.toFixed(5)+"/"+delay.wet.value.toFixed(5);
 
 random_button4.on('change',function(v) {
 	effect_generator();
-	document.getElementById("filter_val").innerHTML = "HighPass Filter Value (0~10000) <br>"+ filter.frequency.value;
-	document.getElementById("reverb_val").innerHTML = "Reverb Value (0~1) <br>"+ reverb.roomSize.value.toFixed(5);
+	document.getElementById("filter_val").innerHTML = "HighPass Filter Value <br>"+ filter.frequency.value;
+	document.getElementById("reverb_val").innerHTML = "Reverb Value <br>"+ reverb.roomSize.value.toFixed(5);
 	document.getElementById("delay_val").innerHTML = "delay feedback/wet Value <br>"+ delay.feedback.value.toFixed(5)+"/"+delay.wet.value.toFixed(5);
 })
 

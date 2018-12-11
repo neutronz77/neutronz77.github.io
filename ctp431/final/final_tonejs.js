@@ -80,12 +80,18 @@ var synth;
 var length;
 
 reverb = new Tone.Freeverb();
-filter = new Tone.Filter(100, "highpass");
+filter = new Tone.Filter({
+type  : "highpass" ,
+frequency  : 350 ,
+rolloff  : -12 ,
+Q  : 1 ,
+gain  : 0
+});
 delay = new Tone.PingPongDelay({
   "delayTime" : "8n",
   "feedback" : 0.1,
   "wet" : 0.1
-})
+}).toMaster()
 
 filter.frequency.value = 5000;
 reverb.roomSize.value = 0.2;
@@ -215,7 +221,7 @@ function make_scale(root, major){
 }
 
 function effect_generator(){
-  filter.frequency.value = generateRandom(2000,10000);
+  filter.frequency.value = generateRandom(2000,20000);
   reverb.roomSize.value = Math.random();
   delay.wet.value = Math.min(0.6,Math.random());
   delay.feedback.value = Math.random()/2;
