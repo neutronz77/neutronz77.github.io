@@ -15,6 +15,21 @@ button.active, button:active {
     box-shadow: 0 0 2px 0 rgb(0,0,0);
 }
 
+h1.title{
+  text-align: center;
+  font-size:120px;
+  font-family:Serif;
+  color:RGB(250,250,250);
+  padding : 0px;
+  margin: 30px 0px 30px 0px;
+}
+
+.center{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 a:link {
   color: rgb(100, 100, 250);
   background-color: transparent;
@@ -22,36 +37,58 @@ a:link {
 }
 
 a:visited {
-  color: rgb(200, 150, 250);
+  color: rgb(100,100,100);
   background-color: transparent;
   text-decoration: none;
 }
 
 a:hover {
-  color: rgb(200, 50, 50);
+  color: rgb(150, 150, 200);
   background-color: transparent;
   text-decoration: underline;
 }
 
 a:active {
-  color: rgb(250, 250, 250);
+  color: rgb(0, 0, 0);
   background-color: transparent;
   text-decoration: underline;
+}
+
+p.link{
+  text-align : center;
+  font-size:80px;
+  font-family:Arial;
+  font-weight: bold;
+  letter-spacing : 10px;
+  word-spacing : 10px;
+}
+
+
+p.intro_head {
+    font-family: "Serif",Gadget, sans-serif;
+    font-size: 50px;
+    color:RGB(150,180,150);
+    text-align : center;
+    letter-spacing : 10px;
 }
 
 p.introduction {
     font-family: "Serif",Gadget, sans-serif;
     font-size: 18px;
     margin-left : 20px;
-    line-height : 30px;
-    color:RGB(250,250,250);
+    line-height : 250%;
+    color:RGB(180,180,180);
+    text-align : center;
+    letter-spacing : 2px;
+    word-spacing : 3px;
 }
 
-p.intro_head {
-    font-family: "Serif",Gadget, sans-serif;
-    font-size: 30px;
-    color:RGB(250,250,250);
+img.technical {
+  align:center;
+  margin-top:20px;
 }
+
+
 
 p.seq_Label {
     font-family: "Serif",Gadget, sans-serif;
