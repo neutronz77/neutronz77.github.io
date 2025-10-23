@@ -1,16 +1,19 @@
-#### Submitted
+#### Journal Papers
+- <strong>M. Kim</strong>, D. Kang, H. Kim and H. Park*, "A Modular Residual Learning Framework to Enhance Model-Based Approach for Robust Locomotion," in IEEE Robotics and Automation Letters, vol. 10, no. 9, pp. 9072-9079, Sept. 2025, doi: 10.1109/LRA.2025.3592067. 
+[[Paper]](https://ieeexplore.ieee.org/document/11091478) 
+[[arXiv]](https://arxiv.org/abs/2507.18138) 
+[[Video]](https://youtu.be/zYmf5ERsJfc?si=yfC6qnZWTJ4wDR5E) 
 
-- <strong>S. Li</strong>, X. Yang*, A. Cao*, K. Fan, Y. Liu, C. Wang, and Q. Niu. LaNCoR: Label Noise-Contrastive Robust Learning for Seismic Signal Processing with Application to Microseismic Arrival Time Picking. <strong>Rej :)</strong> [[Code]](https://github.com/senli1073/LaNCor)
+- H. Kim, D. Kang, <strong>M. Kim</strong>, G. Kim and H. Park*, "Online Friction Coefficient Identification for Legged Robots on Slippery Terrain Using Smoothed Contact Gradients," in IEEE Robotics and Automation Letters, vol. 10, no. 4, pp. 3150-3157, April 2025, doi: 10.1109/LRA.2025.3541428. 
+[[Paper]](https://ieeexplore.ieee.org/abstract/document/10884016) 
+[[arXiv]](https://arxiv.org/html/2502.16843v1) 
+[[Video]](https://youtu.be/3nA2nxnjixA?si=6bRlugIyfbbdnsFD) 
 
-#### Published
+#### Conference Papers
 
-- X. Yang, <strong>S. Li</strong>, A. Cao*, C. Wang*, Y. Liu, X. Bai, and Q. Niu (2024). Deep Transfer Learning for P-wave Arrival Identification and Automatic Seismic Source Location in Underground Mines. <strong>International Journal of Rock Mechanics and Mining Sciences</strong>. [[Paper]](https://doi.org/10.1016/j.ijrmms.2024.105888)
+- <strong>M. Kim</strong>, H. Kim and H. Park*, (2023). "A*-Based Path Planning for Legged Robots,". in Robot Intelligence Technology and Applications 7. RiTA 2022. Lecture Notes in Networks and Systems, vol 642. Springer, Cham., doi: 10.1007/978-3-030-97672-9_3 <strong>Best Paper Award Finalist</strong> 
+[[Paper]](https://link.springer.com/chapter/10.1007/978-3-031-26889-2_9)
 
-- <strong>S. Li</strong>, X. Yang*, A. Cao*, C. Wang, Y. Liu, Y. Liu, and Q. Niu (2024). SeisT: A Foundational Deep-Learning Model for Earthquake Monitoring Tasks. <strong>IEEE Transactions on Geoscience and Remote Sensing</strong>. [[Paper]](https://doi.org/10.1109/TGRS.2024.3371503) [[Code]](https://github.com/senli1073/SeisT)
-
-- A. Cao, X. Yang, C. Wang*, <strong>S. Li</strong>, Y. Liu, L. Dou, and Q. Niu (2023). High-Precision Phase Picking and Automatic Source Locating Method for Seismicity in Mines Based on Deep Transfer Learning. <strong>Journal of China Coal Society</strong>. [[Paper]](https://doi.org/10.13225/j.cnki.jccs.2023.0095)
-
-- A. Cao, Y. Liu, X. Yang*, <strong>S. Li</strong>, C. Wang, X. Bai, and Y. Liu (2022). Physical Index and Data Fusion-Driven Method for Coal Burst Prediction in Time Sequence. <strong>Journal of China Coal Society</strong>. [[Paper]](https://doi.org/10.13225/j.cnki.jccs.2022.0680)
-
-- X. Yang, X. Yu, C. Zhang, <strong>S. Li</strong>, and Q. Niu (2021). MineGPS: Battery-Free Localization Base Station for Coal Mine Environment. <strong>IEEE Communications Letters</strong>. [[Paper]](https://doi.org/10.1109/LCOMM.2021.3081593)
+- <strong>M. Kim</strong>, S. Hong, J. Kim and H. Park*, (2022). "Design of Foothold Decision Model in Convex Model Predictive Control for Legged Robots," in Robot Intelligence Technology and Applications 6. RiTA 2021. Lecture Notes in Networks and Systems, vol 429. Springer, Cham., doi: 10.1007/978-3-030-97672-9_3 
+[[Paper]](https://link.springer.com/chapter/10.1007/978-3-030-97672-9_3)
 

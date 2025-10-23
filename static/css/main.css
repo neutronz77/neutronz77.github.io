@@ -99,8 +99,12 @@ section .main-body{
 }
 
 #avatar img {
-    height: max(130px,min(200px,calc(100vw/6)));
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    /* height: max(130px,min(200px,calc(100vw/6))); */
+    /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); */
+    width: max(130px,min(250px,calc(100vw/4)));  /* 크기를 더 크게 조절 (원하는 크기로 변경 가능) */
+    height: max(130px,min(250px,calc(100vw/4))); /* 크기를 더 크게 조절 (원하는 크기로 변경 가능) */
+    border-radius: 50%; /* 원형으로 만들기 */
+    object-fit: cover; /* 이미지 비율 유지 */
 }
 
 @media screen and (max-width: 991px) {
