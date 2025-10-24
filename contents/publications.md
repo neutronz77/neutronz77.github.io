@@ -9,7 +9,7 @@
       <div class="pub-authors"><strong>Min-Gyu Kim</strong>, Dongyun Kang, Hajun Kim and Hae-Won Park*</div>
       <div class="pub-venue">IEEE Robotics and Automation Letters, vol. 10, no. 9 (2025)</div>
       <div class="pub-links">
-        <a href="projects/paper-2025-ral-modular/index.html">Project</a> ·
+        <a href="https://neutronz77.github.io/paper-2025-ral-modular/">Project</a> ·
         <a href="https://ieeexplore.ieee.org/document/11091478">Paper</a> ·
         <a href="https://arxiv.org/abs/2507.18138">arXiv</a> ·
         <a href="https://youtu.be/zYmf5ERsJfc?si=yfC6qnZWTJ4wDR5E">Video</a>
