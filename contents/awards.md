@@ -1,2 +1,2 @@
 
-- Best Paper Finalist (RiTA), 2022.
+- Best Paper Award Finalist (RiTA), 2022.

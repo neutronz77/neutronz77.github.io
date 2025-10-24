@@ -9,7 +9,7 @@ I am a Ph.D. student at [Korea Advanced Institute of Science and Technology (KAI
 Email: neutronz@kaist.ac.kr
 
 #### Education
-M.E., Department of Mechanical Engineering, Korea Advanced Institute of Science and Technology, 2019—2021. (Adviser: Prof.Hae-Won Park)\
+M.E., Department of Mechanical Engineering, Korea Advanced Institute of Science and Technology, 2019—2021. (Adviser: Prof. Hae-Won Park)\
 B.E., Department of Mechanical Engineering, Korea Advanced Institute of Science and Technology, 2014—2019.
 
 #### Research Interests

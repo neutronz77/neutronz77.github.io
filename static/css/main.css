@@ -49,9 +49,14 @@ section header h2{
 }
 
 section .main-body{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 200;
     line-height: 2.4rem;
+    text-align: justify;           /* 양쪽 맞춤 */
+    text-justify: inter-character; /* 한글/한자 등 CJK에 더 적합 */
+    -ms-text-justify: distribute;  /* 레거시 IE/Edge 지원 */
+    text-align-last: left;         /* 마지막 줄은 좌측정렬 유지 */
+    hyphens: auto;                 /* 필요시 단어 나눔 허용 (영문에 유용) */
 }
 
 
@@ -101,16 +106,95 @@ section .main-body{
 #avatar img {
     /* height: max(130px,min(200px,calc(100vw/6))); */
     /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); */
-    width: max(130px,min(250px,calc(100vw/4)));  /* 크기를 더 크게 조절 (원하는 크기로 변경 가능) */
-    height: max(130px,min(250px,calc(100vw/4))); /* 크기를 더 크게 조절 (원하는 크기로 변경 가능) */
+    width: max(130px,min(200px,calc(100vw/4)));  /* 크기를 더 크게 조절 (원하는 크기로 변경 가능) */
+    height: max(130px,min(200px,calc(100vw/4))); /* 크기를 더 크게 조절 (원하는 크기로 변경 가능) */
     border-radius: 50%; /* 원형으로 만들기 */
     object-fit: cover; /* 이미지 비율 유지 */
+}
+
+.container {
+    max-width: 1000px !important;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
 }
 
 @media screen and (max-width: 991px) {
     #avatar {
         margin: 0;
     }
+    section .main-body{
+        text-align: left;
+    }
 }
 
 
+/* Publications layout */
+.pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.pub-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.pub-thumb {
+    width: 126px;
+    height: 96px;
+    object-fit: scale-down;
+    border-radius: 10px;
+    flex: 0 0 96px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.pub-meta {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.pub-title {
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+}
+
+.pub-authors {
+    font-size: 0.95rem;
+    color: #777;
+    margin-bottom: 0.2rem;
+}
+
+.pub-venue {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.2rem;
+}
+
+.pub-links a {
+    color: var(--h-title-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+.pub-links a:hover { text-decoration: underline; }
+
+/* Responsive: stack thumbnail above text on small screens */
+@media screen and (max-width: 600px) {
+    .pub-item {
+        flex-direction: row; /* keep row but allow thumbnail smaller */
+        gap: 0.75rem;
+    }
+    .pub-thumb {
+        width: 72px;
+        height: 72px;
+        flex: 0 0 72px;
+    }
+}
