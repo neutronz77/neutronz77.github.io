@@ -3,6 +3,21 @@
 <div class="pub-list">
 
   <article class="pub-item">
+    <img class="pub-thumb" src="static/assets/img/publications/2025-ral-dcto.png" alt="paper thumbnail">
+    <div class="pub-meta">
+      <div class="pub-title">Dynamically-Consistent Trajectory Optimization for Legged Robots via Contact Point Decomposition</div>
+      <div class="pub-authors">Sangmin Kim, Hajun Kim, Gijeong Kim, <strong>Min-Gyu Kim</strong> and Hae-Won Park*</div>
+      <div class="pub-venue">IEEE Robotics and Automation Letters (accepted) </div>
+      <div class="pub-links" style="display:none;">
+        <a href="https://neutronz77.github.io/paper-2025-ral-modular/">Project</a> ·
+        <a href="https://ieeexplore.ieee.org/document/11091478">Paper</a> ·
+        <a href="https://arxiv.org/abs/2507.18138">arXiv</a> ·
+        <a href="https://youtu.be/zYmf5ERsJfc?si=yfC6qnZWTJ4wDR5E">Video</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="pub-item">
     <img class="pub-thumb" src="static/assets/img/publications/2025-ral-modular.png" alt="paper thumbnail">
     <div class="pub-meta">
       <div class="pub-title">A Modular Residual Learning Framework to Enhance Model-Based Approach for Robust Locomotion</div>
