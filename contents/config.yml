@@ -1,5 +1,17 @@
 title: MGKim's Homepage
 page-top-title: Min-Gyu Kim
 top-section-bg-text: 
-home-subtitle: Min-Gyu Kim &ensp;
+home-subtitle: |
+  Min-Gyu Kim&nbsp;
+  <span class="home-icons">
+    <a href="https://scholar.google.co.kr/citations?user=kS8StFEAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
+      <i class="bi bi-mortarboard-fill"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/min-gyu-kim-366462324" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <i class="bi bi-linkedin"></i>
+    </a>
+    <a href="https://github.com/neutronz77" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+      <i class="bi bi-github"></i>
+    </a>
+  </span>
 copyright-text: '&copy; Min-Gyu Kim 2025-2025. All Rights Reserved.'

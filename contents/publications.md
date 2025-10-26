@@ -57,7 +57,8 @@
     <div class="pub-meta">
       <div class="pub-title">A*-Based Path Planning for Legged Robots</div>
       <div class="pub-authors"><strong>Min-Gyu Kim</strong>, Hyun-Bin Kim and Hae-Won Park*</div>
-      <div class="pub-venue">7th Robot Intelligence Technology and Applications (RiTA) (2022), <strong>Best Paper Award Finalist</strong></div>
+      <div class="pub-venue">7th Robot Intelligence Technology and Applications (RiTA) (2022)</div>
+      <div class="pub-authors"><strong>Best Paper Award Finalist</strong></div>
       <div class="pub-links">
         <a href="https://link.springer.com/chapter/10.1007/978-3-031-26889-2_9">Paper</a>
       </div>
