@@ -69,7 +69,7 @@
     <img class="pub-thumb" src="static/assets/img/publications/2021-rita-foothold.png" alt="paper thumbnail">
     <div class="pub-meta">
       <div class="pub-title">Design of Foothold Decision Model in Convex Model Predictive Control for Legged Robots</div>
-      <div class="pub-authors"><strong>Min-Gyu Kim</strong>, Seuongwoo Hong, Joon-Ha Kim and Hae-Won Park*</div>
+      <div class="pub-authors"><strong>Min-Gyu Kim</strong>, Seungwoo Hong, Joon-Ha Kim and Hae-Won Park*</div>
       <div class="pub-venue">6th Robot Intelligence Technology and Applications (RiTA) (2021)</div>
       <div class="pub-links">
         <a href="https://link.springer.com/chapter/10.1007/978-3-030-97672-9_3">Paper</a>
