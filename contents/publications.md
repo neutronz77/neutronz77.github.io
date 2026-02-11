@@ -21,7 +21,7 @@
     <div class="pub-meta">
       <div class="pub-title">Dynamically-Consistent Trajectory Optimization for Legged Robots via Contact Point Decomposition</div>
       <div class="pub-authors">Sangmin Kim, Hajun Kim, Gijeong Kim, <strong>Min-Gyu Kim</strong> and Hae-Won Park*</div>
-      <div class="pub-venue">IEEE Robotics and Automation Letters, Early Access (2025) </div>
+      <div class="pub-venue">IEEE Robotics and Automation Letters, vol. 10, no. 12 (2025) </div>
       <div class="pub-links">
         <a href="https://ieeexplore.ieee.org/document/11224016">Paper</a> ·
         <a href="https://arxiv.org/abs/2510.24069">arXiv</a> ·
