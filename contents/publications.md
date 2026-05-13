@@ -7,9 +7,9 @@
     <div class="pub-meta">
       <div class="pub-title">Dynamic Policy Learning for Legged Robot with Simplified Model Pretraining and Model Homotopy Transfer</div>
       <div class="pub-authors">Dongyun Kang, <strong>Min-Gyu Kim</strong>, Tae-Gyu Song, Hajun Kim, Sehoon Ha, and Hae-Won Park*</div>
-      <div class="pub-venue">arXiv </div>
+      <div class="pub-venue">IEEE Robotics and Automation Letters, Early Access (2026) </div>
       <div class="pub-links">
-        <!-- <a href="https://ieeexplore.ieee.org/document/11224016">Paper</a> · -->
+        <a href="https://ieeexplore.ieee.org/document/11513747">Paper</a> ·
         <a href="https://arxiv.org/abs/2512.24698">arXiv</a> 
         <!-- <a href="https://youtu.be/TKBdt3iXaJ4?si=fviWpq413mj-Vsrz">Video</a> -->
       </div>
